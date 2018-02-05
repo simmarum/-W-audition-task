@@ -2,6 +2,15 @@
 
 - [x] initial commit to git with project
 - [x] read data to program
-- [ ] make first graph
+- [x] make first graph
 - [ ] small summary off data
-  - [x] empty values
+  - [x] empty values (learer_id)
+  - [x] country
+  - [ ] in course
+  - [ ] chapter
+  - [ ] avg_score
+  - [ ] completion
+  - [ ] inv_rate
+- [ ] refactor code
+  - [ ] good comment
+  - [ ] maybe doc (if functions)

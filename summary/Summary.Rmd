@@ -81,7 +81,7 @@ The data set has empty values, which is not a good property, but unfortunately v
 For the rest of the calculations, we will delete rows that do not have a learner ID (as incorrect data, because ID is necessary).
 
 ## Country (1)
-
+Participants from `r number_of_country` countries participate in the language course. Below are the 10 most popular countries.
 ```{r}
 plot_country_10
 ```
