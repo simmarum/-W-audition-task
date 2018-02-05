@@ -21,7 +21,7 @@ plot_bar <- function(x,ax,ay,angle=0){
       size = 3.5
     ) +
     theme_minimal() +
-    theme(axis.text.x = element_text(angle=angle))
+    theme(axis.text.x = element_text(margin=margin(4), size=8,angle=angle))
   return(plot_temp)
 }
 

@@ -7,7 +7,7 @@
   - [x] empty values (learer_id)
   - [x] country
   - [x] in course
-  - [ ] chapter
+  - [x] chapter
   - [ ] avg_score
   - [ ] completion
   - [ ] inv_rate
