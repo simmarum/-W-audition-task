@@ -22,7 +22,7 @@ summaryON <- function(x) {
 #' Enalbe capture output (like print) to console
 #'
 #' @examples
-#' summaryOFF()
+#' summaryOFF(pathToFile)
 summaryOFF <- function() {
   sink()
 }
@@ -30,7 +30,7 @@ summaryOFF <- function() {
 ### MAIN
 
 #path to summary file
-summaryFile = "./src/summary.txt"
+summaryFile = "./summary.txt"
 
 #init summary file
 summaryINIT(summaryFile)
@@ -55,7 +55,7 @@ colNames <-
     "inv_rate")
 data2018 <-
   read.csv(
-    file = "./data/data2018.csv",
+    file = "../data/data2018.csv",
     header = TRUE,
     sep = ";",
     dec = ".",
@@ -69,10 +69,15 @@ data2018 <-
 # small summary of data
 
 ## empty column
-isNaCol <- sapply(data2018,
+## @knitr MDisNaCol
+isNaCol <- data.frame(sapply(data2018,
                   function(x)
-                    print(sum(is.na(x))))
+                    print(sum(is.na(x)))))
+colnames(isNaCol) <- c("Empty values")
 summaryON(summaryFile)
 print("Table with empty values in every column:")
 print(isNaCol)
 summaryOFF()
+
+
+

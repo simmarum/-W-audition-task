@@ -1,0 +1,87 @@
+---
+title: "Summary"
+author: "Mateusz Kruszyna"
+date: "5 lutego 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r echo=FALSE}
+invisible(capture.output(source('../src/main.R')))
+```
+
+<style type="text/css">
+
+body{ /* Normal  */
+      font-size: 18px;
+  }
+p {
+  font-size: 20px;
+}
+ul {
+  font-size: 18px;
+}
+td {  /* Table  */
+  font-size: 18px;
+}
+h1.title {
+  font-size: 38px;
+  color: DarkRed;
+}
+h1 { /* Header 1 */
+  font-size: 32px;
+  color: DarkBlue;
+}
+h2 { /* Header 2 */
+    font-size: 30px;
+  color: DarkBlue;
+}
+h3 { /* Header 3 */
+  font-size: 26px;
+  font-family: "Times New Roman", Times, serif;
+  color: DarkBlue;
+}
+code.r{ /* Code block */
+    font-size: 18px;
+}
+pre { /* Code block - determines code spacing between lines */
+    font-size: 18px;
+}
+</style>
+## Audition task 2018
+
+This is a simple presentation of data from Pearson audition task in 2018. Below I will try to present the information contained in the data. 
+
+
+## Short info about data
+
+The dataset comes from a Pearson e-learning platform for English language learners. It’s an online workbook with automatically-graded activities that they used alongside a paper textbook. The activities are either assigned by the teacher as homework or completed voluntarily by learners as extra practice.
+
+- **learner_id:** anonymized learner identifier
+- **country:** country code of the learner
+- **in_course:** “t” if the learner belongs to course taught by a teacher (as opposed
+to studying alone)
+- **chapter:** number or name of a chapter in the workbook
+- **avg_score:** a learner’s avg. percentage score on all activities within a given unit
+- **completion:** the percentage of activities completed in a given unit, out of all
+activities available in that unit
+- **inv_rate:** This is the extent to which a learner deviates from the suggested
+order of activities by the pedagogy experts within a given unit. A value of zero
+indicates no departure from the suggested order, a value of one indicates a
+complete reversal of the order.
+
+## How many empty values is in the set
+
+```{r}
+print(isNaCol)
+```
+The data set has empty values, which is not a good property, but unfortunately very real.
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
