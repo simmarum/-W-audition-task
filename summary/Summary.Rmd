@@ -144,8 +144,19 @@ plot_completion
 ## Achieve score vs done activities
 
 From analyze the data, we see that:
+
 - Not every activities is scored.
 - Is easier to make more activities than achieve more score.
 - Probalby in the course are some activietes, which are hard but have more points.
 - Easier activietes with less points are common
 - Participants choose the easier activities than those that are better scored.
+
+## Reversal of the suggested order
+
+```{r fig6, fig.height = 3, fig.width = 7}
+plot_inv_rate
+```
+
+- Up to `r best_inv_rate` of the participants kept to a suggested order.
+- Only `r ecdf_inv_rate_half_inverse` of participants chose the order which is at most 50% of the line with the suggested.
+- This could mean that the most of the participants trust the prepared activities sequence or don't try to manually search for the topics that interest them in a given course.

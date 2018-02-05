@@ -11,7 +11,7 @@
   - [x] avg_score
   - [x] completion
   - [x] comparision -> score vs activities
-  - [ ] inv_rate
+  - [x] inv_rate
 - [ ] refactor code
   - [ ] good comment
   - [ ] maybe doc (if functions)

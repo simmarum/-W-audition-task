@@ -159,8 +159,10 @@ plot_unit <- plot_bar(chapter_vec,"Unit","Frequency",angle=45)
 
 ## score
 score_vec <-data2018$avg_score
+
 score_na <- sum(is.na(score_vec)) # number of NA values
 number_score_incorect <- sum(score_vec>1,na.rm = TRUE) # incorect percentage (greater than 1)
+
 score_vec_cor <- score_vec[!score_vec>1] # remove incorrect percentage
 score_vec_cor <- score_vec_cor[!(is.na(score_vec_cor))] #remove NA values
 
@@ -173,13 +175,31 @@ plot_score <- plot_hist(score_vec_cor,"Average score","Frequency")
 
 ## completion
 completion_vec <-data2018$completion
+
 number_completion_incorect <- sum(score_vec>1,na.rm = TRUE) # incorect percentage (greater than 1)
+
 completion_vec_cor <- completion_vec[!completion_vec>1] # remove incorrect percentage
 
 summary_completion <- summary(completion_vec_cor)
-ecdf_completion_half <- scales::percent(ecdf(completion_vec_cor)(0.5)) # get percent of score for half of participants
+ecdf_completion_half <- scales::percent(ecdf(completion_vec_cor)(0.5)) # get percent of activities for half of participants
 
 # create plot (hist)
 plot_completion <- plot_hist(completion_vec_cor,"Average completion of activites","Frequency",binwidth = 0.08)
 
+
+## inv_rate
+inv_rate_vec <-data2018$inv_rate
+
+inv_rate_na <- sum(is.na(inv_rate_vec))
+number_inv_rate_incorect <- sum(score_vec>1,na.rm = TRUE) # incorect percentage (greater than 1)
+
+inv_rate_vec_cor <- inv_rate_vec[!inv_rate_vec>1] # remove incorrect percentage
+inv_rate_vec_cor <- inv_rate_vec_cor[!(is.na(inv_rate_vec_cor))] #remove NA values
+
+best_inv_rate <- scales::percent(sum(inv_rate_vec_cor == 0)/length(inv_rate_vec_cor))
+summary_inv_rate <- summary(inv_rate_vec_cor)
+ecdf_inv_rate_half_inverse <- scales::percent(1 - ecdf(inv_rate_vec_cor)(0.5)) # get percent of inv_rate for half of participants
+
+# create plot (hist)
+plot_inv_rate <- plot_hist(inv_rate_vec_cor,"Reversal of the suggested order","Frequency",binwidth = 0.05)
 
