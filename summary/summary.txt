@@ -1,9 +1,0 @@
-[1] "Table with empty values in every column:"
-           Empty values
-learner_id           17
-country              23
-in_course             0
-unit                 22
-avg_score             5
-completion            0
-inv_rate              5
