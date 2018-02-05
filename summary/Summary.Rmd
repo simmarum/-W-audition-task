@@ -80,14 +80,15 @@ In data set we have `r number_of_part` observations.
 print(isNaCol)
 ```
 
-The data set has empty values, which is not a good property, but unfortunately very real.
-For the rest of the calculations, we will delete rows that do not have a learner ID (as incorrect data, because ID is necessary). So now, we have `r number_of_part_no_na` observations.
+- The data set has empty values, which is not a good property, but unfortunately very real.
+- For the rest of the calculations, we will delete rows that do not have a learner ID (as incorrect data, because ID is necessary).
+- So now, we have `r number_of_part_no_na` observations.
 
 ## Country (1)
 
 Participants from `r number_of_country` countries participate in the language course. Below are the 10 most popular countries.
 
-```{r}
+```{r  fig1, fig.height = 4, fig.width = 7}
 plot_country_10
 ```
 
@@ -104,16 +105,26 @@ Only from Bangladesh, Portugal and 	Zimbabwe is one participant
 
 In the graph below we see, that the vast majority of learners have teacher. Only `r freq_f` of participants are self-taught. Which could mean that hardly anyone likes to learn on their own.
 
-```{r}
+```{r fig2, fig.height = 4, fig.width = 7}
 plot_course
 ```
 
-## Progess in learning
+## Progess in unit
 
-```{r}
+```{r fig3, fig.height = 4, fig.width = 7}
 plot_unit
 ```
 
-We can see that most of the learners are at the beginning of the course. We can notice linear trend which is descending.
-Some participants are on video podcast, which can be between each unit.
-And we have some lacks in data, because `r chapter_na` participants have no assigned a unit.
+- We can see that most of the learners are at the beginning of the course. We can notice linear trend which is descending.
+- Some participants are on video podcast, which can be between each unit.
+- And we have some lacks in data, because `r chapter_na` participants have no assigned a unit.
+
+## Progres in every unit
+
+```{r fig4, fig.height = 4, fig.width = 7}
+plot_score
+```
+
+- On the graph, we see that most of the learners has done a significant portion of the unit, in which they are.
+- Half of the participants make at least `r summary_score[3]` percent of the tasks in a given unit.
+- We have small peak on the graph with 0 score. It may mean, that some participants had just signed up for a course or gave up immediately after the start.

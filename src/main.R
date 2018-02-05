@@ -141,12 +141,20 @@ freq_t = scales::percent(course_vec$Frequency[course_vec$Teacher == "True"]/numb
 ## chapter
 chapter_vec <- factor(data2018$unit,exclude = NULL) # factor from unit column
 chapter_vec <- factor(chapter_vec,levels(chapter_vec)[c(1,13,5,14,6,15,7,16,8:12,2:4,17,18)],exclude = NULL) #reorder levels in factor (to ascending)
-chapter_na <- sum(is.na(chapter_vec))
+chapter_na <- sum(is.na(data2018$unit))
 chapter_vec <- data.frame(table(chapter_vec))
 colNamesCourse <- c("Unit", "Frequency") # create columns names
 colnames(chapter_vec) <- colNamesCourse # add columns name
 # create plot (bar) from first 10 country
 plot_unit <- plot_bar(chapter_vec,"Unit","Frequency",angle=45)
 
+## score
+score_vec <-data2018$avg_score
+score_na <- sum(is.na(score_vec)) # number of NA values
+number_score_incorect <- sum(score_vec>1,na.rm = TRUE) # incorect percentage (greater than 1)
+score_vec_cor <- score_vec[!score_vec>1] # remove incorrect percentage
+score_vec_cor <- score_vec_cor[!(is.na(score_vec_cor))] #remove NA values
 
-
+summary_score <- summary(score_vec_cor)
+ecdf_score_half <- scales::percent(ecdf(score_vec_cor)(0.5))
+plot_score <- qplot(score_vec_cor, geom="histogram",binwidth = 0.03,xlab="Average score",ylab="Frequency")

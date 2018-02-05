@@ -8,7 +8,7 @@
   - [x] country
   - [x] in course
   - [x] chapter
-  - [ ] avg_score
+  - [x] avg_score
   - [ ] completion
   - [ ] inv_rate
 - [ ] refactor code
