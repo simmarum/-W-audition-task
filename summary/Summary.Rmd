@@ -140,3 +140,12 @@ plot_completion
 - Half of the participants make at least `r scales::percent(summary_completion[[3]])` percent of the activities in a given unit.
 - Less than half of activities make only `r ecdf_completion_half`. So more participants done a half of activities than achieve half of maximum points.
 - We can see that everyone has done at least one task.
+
+## Achieve score vs done activities
+
+From analyze the data, we see that:
+- Not every activities is scored.
+- Is easier to make more activities than achieve more score.
+- Probalby in the course are some activietes, which are hard but have more points.
+- Easier activietes with less points are common
+- Participants choose the easier activities than those that are better scored.

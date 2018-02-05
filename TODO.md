@@ -10,7 +10,7 @@
   - [x] chapter
   - [x] avg_score
   - [x] completion
-  - [ ] comparision -> score vs activities
+  - [x] comparision -> score vs activities
   - [ ] inv_rate
 - [ ] refactor code
   - [ ] good comment
