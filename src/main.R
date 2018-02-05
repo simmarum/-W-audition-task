@@ -1,18 +1,39 @@
 library(readr)
 
-summaryINIT <- function(){
-  sink("./src/summary.txt")
+#' Initialize summary file - reset content of file
+#'
+#' @param x path to summary file
+#' @examples
+#' summaryINIT(pathToFile)
+summaryINIT <- function(x) {
+  sink(x)
 }
 
-summaryON <- function(){
-  sink("./src/summary.txt",append=TRUE)
+#' Enable capture output (like print) to summary file - append future content to this file
+#'
+#' @param x path to summary file
+#' @examples
+#' summaryON(pathToFile)
+summaryON <- function(x) {
+  sink(x, append = TRUE)
 }
-summaryOFF <- function(){
+
+#' Disable capture output (like print) from any file
+#' Enalbe capture output (like print) to console
+#'
+#' @examples
+#' summaryOFF()
+summaryOFF <- function() {
   sink()
 }
 
+### MAIN
+
+#path to summary file
+summaryFile = "./src/summary.txt"
+
 #init summary file
-summaryINIT()
+summaryINIT(summaryFile)
 summaryOFF()
 
 # read data
@@ -38,7 +59,7 @@ data2018 <-
     header = TRUE,
     sep = ";",
     dec = ".",
-    na.strings=c(""),
+    na.strings = c(""),
     colClasses = colClass,
     col.names = colNames,
     encoding = "UTF-8-BOM"
@@ -48,8 +69,10 @@ data2018 <-
 # small summary of data
 
 ## empty column
-isNaCol <- sapply(data2018, function(x) print(sum(is.na(x))))
-summaryON()
+isNaCol <- sapply(data2018,
+                  function(x)
+                    print(sum(is.na(x))))
+summaryON(summaryFile)
 print("Table with empty values in every column:")
 print(isNaCol)
 summaryOFF()
