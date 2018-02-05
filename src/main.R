@@ -1,4 +1,5 @@
 library(readr)
+library(ggplot2) 
 
 #' Initialize summary file - reset content of file
 #'
@@ -69,7 +70,6 @@ data2018 <-
 # small summary of data
 
 ## empty column
-## @knitr MDisNaCol
 isNaCol <- data.frame(sapply(data2018,
                   function(x)
                     print(sum(is.na(x)))))
@@ -79,5 +79,20 @@ print("Table with empty values in every column:")
 print(isNaCol)
 summaryOFF()
 
+## remove rows with NA in learner_id
+data2018 <- data2018[!(is.na(data2018$learner_id)),]
 
+## plot country
+number_of_country <- length(unique(data2018$country))
+country_vec <- table(data2018$country)
+country_fisrt_10 <- data.frame(head(sort(country_vec,decreasing = TRUE),n=10))
+country_last_1 <- data.frame(country_vec[country_vec == 1])
+colNamesCountry <- c("Country","Frequency")
+colnames(country_fisrt_10) <- colNamesCountry
+colnames(country_last_1) <- colNamesCountry
+
+plot_country_10 <- ggplot(data=country_fisrt_10, aes(x=Country, y=Frequency)) +
+  geom_bar(stat="identity",width=0.8, fill="cadetblue3") +
+  geom_text(aes(label=Frequency), vjust=-0.2, color="black", size=3.5)+
+  theme_minimal()
 

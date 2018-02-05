@@ -78,10 +78,18 @@ complete reversal of the order.
 print(isNaCol)
 ```
 The data set has empty values, which is not a good property, but unfortunately very real.
+For the rest of the calculations, we will delete rows that do not have a learner ID (as incorrect data, because ID is necessary).
 
-## Slide with Plot
+## Country (1)
 
-```{r pressure}
-plot(pressure)
+```{r}
+plot_country_10
 ```
+In this graph, we can see that the largest group of students comes from Turkey and Poland occupies 3rd place.
 
+## Country (2)
+
+```{r}
+print(country_last_1)
+```
+Only from Bangladesh, Portugal and 	Zimbabwe is one participant
