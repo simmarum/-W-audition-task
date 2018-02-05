@@ -139,10 +139,11 @@ names(course_vec)[names(course_vec) == "t"] <- "True" # change t to True
 course_vec <- data.frame(course_vec,colClass <- c("factor","integer"))
 colNamesCourse <- c("Teacher", "Frequency") # create columns names
 colnames(course_vec) <- colNamesCourse # add columns name
-## create plot (pie) course
+# create plot (pie) course
 plot_course <- plot_pie(course_vec,"Teacher", "Frequency")
 freq_f = scales::percent(course_vec$Frequency[course_vec$Teacher == "False"]/number_of_part_no_na)
 freq_t = scales::percent(course_vec$Frequency[course_vec$Teacher == "True"]/number_of_part_no_na)
+
 
 ## chapter
 chapter_vec <- factor(data2018$unit,exclude = NULL) # factor from unit column
@@ -151,8 +152,10 @@ chapter_na <- sum(is.na(data2018$unit))
 chapter_vec <- data.frame(table(chapter_vec))
 colNamesCourse <- c("Unit", "Frequency") # create columns names
 colnames(chapter_vec) <- colNamesCourse # add columns name
+
 # create plot (bar) from first 10 country
 plot_unit <- plot_bar(chapter_vec,"Unit","Frequency",angle=45)
+
 
 ## score
 score_vec <-data2018$avg_score
@@ -160,7 +163,23 @@ score_na <- sum(is.na(score_vec)) # number of NA values
 number_score_incorect <- sum(score_vec>1,na.rm = TRUE) # incorect percentage (greater than 1)
 score_vec_cor <- score_vec[!score_vec>1] # remove incorrect percentage
 score_vec_cor <- score_vec_cor[!(is.na(score_vec_cor))] #remove NA values
-# create plot (hist)
+
 summary_score <- summary(score_vec_cor)
 ecdf_score_half <- scales::percent(ecdf(score_vec_cor)(0.5)) # get percent of score for half of participants
+
+# create plot (hist)
 plot_score <- plot_hist(score_vec_cor,"Average score","Frequency")
+
+
+## completion
+completion_vec <-data2018$completion
+number_completion_incorect <- sum(score_vec>1,na.rm = TRUE) # incorect percentage (greater than 1)
+completion_vec_cor <- completion_vec[!completion_vec>1] # remove incorrect percentage
+
+summary_completion <- summary(completion_vec_cor)
+ecdf_completion_half <- scales::percent(ecdf(completion_vec_cor)(0.5)) # get percent of score for half of participants
+
+# create plot (hist)
+plot_completion <- plot_hist(completion_vec_cor,"Average completion of activites","Frequency",binwidth = 0.08)
+
+

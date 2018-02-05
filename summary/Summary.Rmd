@@ -121,10 +121,22 @@ plot_unit
 
 ## Progres in every unit
 
-```{r fig4, fig.height = 4, fig.width = 7}
+```{r fig4, fig.height = 3, fig.width = 7}
 plot_score
 ```
 
 - On the graph, we see that most of the learners has done a significant portion of the unit, in which they are.
-- Half of the participants make at least `r summary_score[3]` percent of the tasks in a given unit.
+- Half of the participants achieve at least `r scales::percent(summary_score[[3]])` percent of the points in a given unit.
+- Less than half of maximum score achieve only `r ecdf_score_half`. So the vast majority of learners won at least half of the points.
 - We have small peak on the graph with 0 score. It may mean, that some participants had just signed up for a course or gave up immediately after the start.
+
+## Progres in activities of unit
+
+```{r fig5, fig.height = 3, fig.width = 7}
+plot_completion
+```
+
+- On the graph, we can see that almost every participant has done almost all of the activities in unit. What may mean, that in unit are only few difficult tasks and the rest ist easy.
+- Half of the participants make at least `r scales::percent(summary_completion[[3]])` percent of the activities in a given unit.
+- Less than half of activities make only `r ecdf_completion_half`. So more participants done a half of activities than achieve half of maximum points.
+- We can see that everyone has done at least one task.

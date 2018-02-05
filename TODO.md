@@ -9,7 +9,8 @@
   - [x] in course
   - [x] chapter
   - [x] avg_score
-  - [ ] completion
+  - [x] completion
+  - [ ] comparision -> score vs activities
   - [ ] inv_rate
 - [ ] refactor code
   - [ ] good comment
