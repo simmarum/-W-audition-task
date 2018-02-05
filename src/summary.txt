@@ -1,0 +1,3 @@
+[1] "Table with empty values in every column:"
+learner_id    country  in_course       unit  avg_score completion   inv_rate 
+        17         23          0         22          5          0          5 

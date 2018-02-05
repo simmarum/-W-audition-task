@@ -1,4 +1,21 @@
 library(readr)
+
+summaryINIT <- function(){
+  sink("./src/summary.txt")
+}
+
+summaryON <- function(){
+  sink("./src/summary.txt",append=TRUE)
+}
+summaryOFF <- function(){
+  sink()
+}
+
+#init summary file
+summaryINIT()
+summaryOFF()
+
+# read data
 colClass <-
   c("integer",
     "character",
@@ -26,3 +43,13 @@ data2018 <-
     col.names = colNames,
     encoding = "UTF-8-BOM"
   )
+
+
+# small summary of data
+
+## empty column
+isNaCol <- sapply(data2018, function(x) print(sum(is.na(x))))
+summaryON()
+print("Table with empty values in every column:")
+print(isNaCol)
+summaryOFF()
