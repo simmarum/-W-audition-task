@@ -58,6 +58,12 @@ plot_pie <- function(x,ax,ay){
   return(plot_temp)
 }
 
+
+plot_hist <- function(x,xlab,ylab,binwidth = 0.03){
+  plot_temp = qplot(x, geom="histogram",binwidth = binwidth,xlab=xlab,ylab=ylab)
+  return(plot_temp)
+}
+
 # read data
 colClass <-
   c("integer",
@@ -154,7 +160,7 @@ score_na <- sum(is.na(score_vec)) # number of NA values
 number_score_incorect <- sum(score_vec>1,na.rm = TRUE) # incorect percentage (greater than 1)
 score_vec_cor <- score_vec[!score_vec>1] # remove incorrect percentage
 score_vec_cor <- score_vec_cor[!(is.na(score_vec_cor))] #remove NA values
-
+# create plot (hist)
 summary_score <- summary(score_vec_cor)
-ecdf_score_half <- scales::percent(ecdf(score_vec_cor)(0.5))
-plot_score <- qplot(score_vec_cor, geom="histogram",binwidth = 0.03,xlab="Average score",ylab="Frequency")
+ecdf_score_half <- scales::percent(ecdf(score_vec_cor)(0.5)) # get percent of score for half of participants
+plot_score <- plot_hist(score_vec_cor,"Average score","Frequency")
