@@ -1,9 +1,11 @@
 ---
-title: "Summary"
+title: "Summary of exploring a dataset"
 author: "Mateusz Kruszyna"
 date: "5 lutego 2018"
 output: ioslides_presentation
 ---
+
+<!--- Setup and run the code for data from it --->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -12,6 +14,7 @@ knitr::opts_chunk$set(echo = FALSE)
 invisible(capture.output(source('../src/main.R')))
 ```
 
+<!--- Adding a simple style for a better look --->
 <style type="text/css">
 
 body{ /* Normal  */
@@ -50,6 +53,9 @@ pre { /* Code block - determines code spacing between lines */
     font-size: 18px;
 }
 </style>
+
+<!--- Begin slide --->
+
 ## Audition task 2018
 
 This is a simple presentation of data from Pearson audition task in 2018. Below I will try to present the information contained in the data. 

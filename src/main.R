@@ -5,11 +5,14 @@ library(ggplot2)
 
 #' Plot bar graph from data frame
 #' 
-#' @param x A data.frame.
-#' @param ax A name of X axis.
-#' @param ay A name of Y axis.
+#' @param x A data.frame
+#' @param ax A column name of X axis.
+#' @param ay A column name of Y axis.
 #' @param angle A angle of X axis ticks (in degrees)
 #' @return The plot of \code{x} with \code{ax} horizontal axis and \code{ay} vertical axis.
+#' @examples
+#' plot_bar(dataframe, "column1","column2")
+#' plot_bar(dataframe, "column1","column2",angle=45)
 plot_bar <- function(x,ax,ay,angle=0){
   plot_temp <-
     ggplot(data = x, aes_string(x = ax, y = ay)) +
@@ -31,6 +34,8 @@ plot_bar <- function(x,ax,ay,angle=0){
 #' @param ax (string with quotes) A name of X axis.  (what will be in legend)
 #' @param ay (string with quotes) A name of Y axis. (number of every item in legend)
 #' @return The pie plot of \code{x}.
+#' @examples
+#' plot_pie(dataframe, "column1","column2")
 plot_pie <- function(x,ax,ay){
   # create blank theme (for pie chart)
   blank_theme <- theme_minimal()+
@@ -58,7 +63,16 @@ plot_pie <- function(x,ax,ay){
   return(plot_temp)
 }
 
-
+#' Plot histogram from factor (vector)
+#' 
+#' @param x A vector of factor
+#' @param xlab (string with quotes) A name of X axis label.
+#' @param ylab (string with quotes) A name of Y axis label.
+#' @param binwidth A numeric value, width of a bin in histogram
+#' @return The histogram plot of \code{x}.
+#' @examples
+#' plot_hist(vector, "label of x axis","label of x axis")
+#' plot_hist(vector, "label of x axis","label of x axis",binwidth=0.5)
 plot_hist <- function(x,xlab,ylab,binwidth = 0.03){
   plot_temp = qplot(x, geom="histogram",binwidth = binwidth,xlab=xlab,ylab=ylab)
   return(plot_temp)
