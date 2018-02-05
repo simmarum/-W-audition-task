@@ -33,6 +33,8 @@ data2018 <-
 
 # small summary of data
 number_of_part <- nrow(data2018)
+
+
 ## empty column
 isNaCol <- data.frame(sapply(data2018,
                              function(x)
@@ -41,9 +43,12 @@ isNaCol <- data.frame(sapply(data2018,
                                )))))
 colnames(isNaCol) <- c("Empty values") # add columns names
 
+
 ## remove rows with NA in learner_id
 data2018 <- data2018[!(is.na(data2018$learner_id)), ]
 number_of_part_no_na <- nrow(data2018)
+
+
 ## plot country
 number_of_country <-
   length(unique(data2018$country)) # count unique country name
@@ -71,3 +76,35 @@ plot_country_10 <-
     size = 3.5
   ) +
   theme_minimal()
+
+
+## in course
+course_vec <- table(data2018$in_course) # table with in_course
+names(course_vec)[names(course_vec) == "f"] <- "False" #change f to False
+names(course_vec)[names(course_vec) == "t"] <- "True" # change t to True
+course_vec <- data.frame(course_vec,colClass <- c("factor","integer"))
+colNamesCourse <- c("Teacher", "Frequency") # create columns names
+colnames(course_vec) <- colNamesCourse # add columns name
+
+# create blank theme (for pie chart)
+blank_theme <- theme_minimal()+
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    panel.border = element_blank(),
+    panel.grid=element_blank(),
+    axis.ticks = element_blank(),
+    plot.title=element_text(size=14, face="bold")
+  )
+# pie graph
+plot_course <-
+  ggplot(course_vec, aes(x = "", y = Frequency, fill = Teacher)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar("y", start = 0) +
+  blank_theme +
+  scale_fill_brewer(palette = "Blues") +
+  theme(axis.text.x=element_blank()) +
+  geom_text(aes(y = Frequency/2 + c(0, cumsum(Frequency)[-length(Frequency)]), 
+                label = scales::percent(Frequency/number_of_part_no_na)), size=5)
+freq_f = scales::percent(course_vec$Frequency[course_vec$Teacher == "False"]/number_of_part_no_na)
+freq_t = scales::percent(course_vec$Frequency[course_vec$Teacher == "True"]/number_of_part_no_na)

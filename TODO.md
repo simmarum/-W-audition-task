@@ -6,7 +6,7 @@
 - [ ] small summary off data
   - [x] empty values (learer_id)
   - [x] country
-  - [ ] in course
+  - [x] in course
   - [ ] chapter
   - [ ] avg_score
   - [ ] completion

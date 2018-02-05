@@ -93,3 +93,9 @@ In this graph, we can see that the largest group of students comes from Turkey a
 print(country_last_1)
 ```
 Only from Bangladesh, Portugal and 	Zimbabwe is one participant
+
+## Teacher or self-taught
+In the graph below we see, that the vast majority of learners have teacher. Only `r freq_f` of participants are self-taught. Which could mean that hardly anyone likes to learn on their own.
+```{r}
+plot_course
+```
