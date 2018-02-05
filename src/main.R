@@ -32,7 +32,7 @@ data2018 <-
 
 
 # small summary of data
-
+number_of_part <- nrow(data2018)
 ## empty column
 isNaCol <- data.frame(sapply(data2018,
                              function(x)
@@ -43,7 +43,7 @@ colnames(isNaCol) <- c("Empty values") # add columns names
 
 ## remove rows with NA in learner_id
 data2018 <- data2018[!(is.na(data2018$learner_id)), ]
-
+number_of_part_no_na <- nrow(data2018)
 ## plot country
 number_of_country <-
   length(unique(data2018$country)) # count unique country name

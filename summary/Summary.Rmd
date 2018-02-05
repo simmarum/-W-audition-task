@@ -73,12 +73,12 @@ indicates no departure from the suggested order, a value of one indicates a
 complete reversal of the order.
 
 ## How many empty values is in the set
-
+In data set we have `r number_of_part` observations.
 ```{r}
 print(isNaCol)
 ```
 The data set has empty values, which is not a good property, but unfortunately very real.
-For the rest of the calculations, we will delete rows that do not have a learner ID (as incorrect data, because ID is necessary).
+For the rest of the calculations, we will delete rows that do not have a learner ID (as incorrect data, because ID is necessary). So now, we have `r number_of_part_no_na` observations.
 
 ## Country (1)
 Participants from `r number_of_country` countries participate in the language course. Below are the 10 most popular countries.
