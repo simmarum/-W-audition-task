@@ -139,12 +139,14 @@ freq_f = scales::percent(course_vec$Frequency[course_vec$Teacher == "False"]/num
 freq_t = scales::percent(course_vec$Frequency[course_vec$Teacher == "True"]/number_of_part_no_na)
 
 ## chapter
-chapter_vec <- data2018$unit # factor from unit column
-chapter_vec = factor(chapter_vec,levels(chapter_vec)[c(1,13,5,14,6,15,7,16,8:12,2:4,17)]) #reorder levels in factor (to ascending)
+chapter_vec <- factor(data2018$unit,exclude = NULL) # factor from unit column
+chapter_vec <- factor(chapter_vec,levels(chapter_vec)[c(1,13,5,14,6,15,7,16,8:12,2:4,17,18)],exclude = NULL) #reorder levels in factor (to ascending)
+chapter_na <- sum(is.na(chapter_vec))
 chapter_vec <- data.frame(table(chapter_vec))
 colNamesCourse <- c("Unit", "Frequency") # create columns names
 colnames(chapter_vec) <- colNamesCourse # add columns name
 # create plot (bar) from first 10 country
 plot_unit <- plot_bar(chapter_vec,"Unit","Frequency",angle=45)
+
 
 
