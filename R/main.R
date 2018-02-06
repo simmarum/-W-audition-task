@@ -13,7 +13,7 @@ library(ggplot2)
 #' @examples
 #' plot_bar(dataframe, "column1","column2")
 #' plot_bar(dataframe, "column1","column2",angle=45)
-plot_bar <- function(x, ax, ay, angle = 0) {
+plot_bar <- function(x, ax, ay, angle = 0,vjust = 1) {
   plot_temp <-
     ggplot(data = x, aes_string(x = ax, y = ay)) +
     geom_bar(stat = "identity",
@@ -31,6 +31,8 @@ plot_bar <- function(x, ax, ay, angle = 0) {
       # add angle to x ticks
       margin = margin(4),
       size = 8,
+      vjust = vjust,
+      hjust = 1,
       angle = angle
     ))
   return(plot_temp)
@@ -192,7 +194,7 @@ colNamesCourse <- c("Unit", "Frequency") # create columns names
 colnames(chapter_vec) <- colNamesCourse # add columns name
 
 # create plot (bar) from first 10 country
-plot_unit <- plot_bar(chapter_vec, "Unit", "Frequency", angle = 45)
+plot_unit <- plot_bar(chapter_vec, "Unit", "Frequency", angle = 90,vjust=0.5)
 
 
 ## score

@@ -82,7 +82,7 @@ complete reversal of the order.
 
 In data set we have `r number_of_part` observations.
 
-```{r}
+```{r comment=NA}
 print(isNaCol)
 ```
 
@@ -102,8 +102,8 @@ In this graph, we can see that the largest group of students comes from Turkey a
 
 ## Country (2)
 
-```{r}
-print(country_last_1)
+```{r comment=NA}
+country_last_1
 ```
 Only from Bangladesh, Portugal and 	Zimbabwe is one participant
 
