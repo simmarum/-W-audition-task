@@ -1,0 +1,11 @@
+Package: WAuditionTask
+Title: Package for explore data from audition task
+Version: 0.1
+Authors@R: person("Mateusz", "Kruszyna", email = "mateusz0831@gmail.com",role = c("aut", "cre"))
+Description: This package is write to explore data for audition task.
+Depends: R (>= 3.4.3)
+Imports:
+    readr,
+    ggplot2,
+    scales
+RoxygenNote: 6.0.1

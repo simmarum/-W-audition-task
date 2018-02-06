@@ -12,6 +12,6 @@
   - [x] completion
   - [x] comparision -> score vs activities
   - [x] inv_rate
-- [ ] refactor code
+- [x] refactor code
   - [x] good comment
-  - [ ] maybe doc (if functions)
+  - [x] maybe doc (if functions)
